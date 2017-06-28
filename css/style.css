@@ -72,7 +72,7 @@ body {
         padding: 20px;
         border-bottom: 1px solid #dddfe2; }
         #item-renderer #exercises #exercise-list li:hover {
-          background: #b8e3f3; }
+          background: pink; }
         #item-renderer #exercises #exercise-list li .exercise-title {
           flex: 4; }
         #item-renderer #exercises #exercise-list li .delete-edit-buttons {
