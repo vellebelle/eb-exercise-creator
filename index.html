@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Eb level create clone with UI</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+
+      <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+  <div id="app">
+  <div id="exercise-selector" class="view">
+    <ul class="discipline-selector">
+      <li class="select-discipline-btn" id="compare-interval-sizes-btn">Compare Interval Sizes</li>
+      <li class="select-discipline-btn" id="identify-intervals-btn">Identify Intervals</li>
+      <li class="select-discipline-btn" id="identify-chords-btn">Identify Chords</li>
+      <li class="select-discipline-btn" id="identify-chord-inversions-btn">Identify Chord Inversions</li>
+      <li class="select-discipline-btn" id="identify-scales-btn">Identify Scales</li>
+    </ul>
+
+    <div id="item-renderer">
+      <div class="create-new-exercise">Create new exercise <span class="plus-sign">+</span></div>
+      <div id="no-exercises-in-discipline-text"></div>
+      <div id="exercises">
+       <ul id="exercise-list">
+
+       </ul>
+      </div>
+      </div>
+      <div id="exercise-info">
+        <h2 class="exercise-info-title">Exercise Title</h2>
+        <p class="exercise-info-description">Exercise description.....</p>
+      </div>
+  </div>  <!-- end exercise-selector -->
+
+  <div id="exercise-creator" class="view">
+    <ul id="sound-sequence-list">
+
+    </ul> <!-- end sound-sequence-list -->
+    <div id="exercise-data-input">
+       <h2>Select harmony</h2>
+      <div id="harmony-select"</div>
+
+        <input type="radio" name="harmony" id="harmony-ascending" value="Ascending" checked>
+        <label for="harmony-ascending">Ascending</label>
+
+        <input type="radio" name="harmony" id="harmony-descending" value="Descending">
+        <label for="harmony-descending">Descending</label>
+
+        <input type="radio" name="harmony" id="harmony-harmonic" value="Harmonic">
+        <label for="harmony-harmonic">Harmonic</label>
+
+        <input type="radio" name="harmony" id="harmony-random" value="Random">
+        <label for="harmony-ramdom">Random</label>
+      </div>
+    <label for="exercise-title-input">Title</label>
+    <input type="text" id="exercise-title-input">
+    <label for="exercise-description-input">Description</label>
+    <textarea id="exercise-description-input"></textarea>
+    <label id="sound-sequences-in-exercise-label" for="sound-sequences-in-exercise">Chords in this exercise:</label>
+    <div id="sound-sequences-in-exercise"></div>
+    <button id="save-exercise">Save</button>
+    <div id="validation"></div>
+    </div> <!-- end exercise-data-input -->
+
+  </div> <!-- end exercise-creator -->
+
+</div> <!-- end app -->
+  <script src='js/jquery-3.2.1.min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>

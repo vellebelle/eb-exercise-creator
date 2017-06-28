@@ -1,0 +1,148 @@
+body {
+  font-family: arial, sans-serif; }
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  min-width: 768px;
+  min-height: 400px; }
+
+#exercise-selector {
+  display: flex;
+  height: 100%; }
+
+.discipline-selector {
+  display: flex;
+  flex-direction: column;
+  background: #555;
+  width: 140px; }
+  .discipline-selector .select-discipline-btn {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 140px;
+    height: 140px;
+    border-bottom: 1px solid #666;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff;
+    background: #777;
+    font-size: 1.1em;
+    cursor: pointer; }
+    .discipline-selector .select-discipline-btn:hover {
+      background: #7f7f7f; }
+  .discipline-selector .select-discipline-btn-active {
+    background: #6f6f6f !important; }
+
+#item-renderer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 50%; }
+  #item-renderer .create-new-exercise {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    background: #eee;
+    font-size: 1.5em;
+    border-bottom: 1px solid #dddfe2;
+    padding: 10px; }
+    #item-renderer .create-new-exercise .plus-sign {
+      font-size: 2.2em;
+      margin-left: 5px; }
+  #item-renderer #no-exercises-in-discipline-text {
+    font-size: 2em;
+    color: #dddfe2;
+    text-shadow: 1px 1px #bbb;
+    text-align: center;
+    margin-top: 1em;
+    line-height: 1.2em;
+    padding: 20px; }
+  #item-renderer #exercises {
+    overflow-y: auto; }
+    #item-renderer #exercises #exercise-list {
+      display: flex;
+      flex-direction: column; }
+      #item-renderer #exercises #exercise-list li {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        padding: 20px;
+        border-bottom: 1px solid #dddfe2; }
+        #item-renderer #exercises #exercise-list li:hover {
+          background: #b8e3f3; }
+        #item-renderer #exercises #exercise-list li .exercise-title {
+          flex: 4; }
+        #item-renderer #exercises #exercise-list li .delete-edit-buttons {
+          display: flex;
+          flex: 1;
+          flex-direction: row; }
+          #item-renderer #exercises #exercise-list li .delete-edit-buttons button {
+            margin-left: 1em; }
+
+#exercise-info {
+  flex: 1;
+  padding: 20px;
+  border-left: 1px solid #dddfe2; }
+  #exercise-info h2 {
+    font-size: 2em;
+    margin-bottom: 30px; }
+
+#exercise-creator {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  box-sizing: border-box; }
+
+#sound-sequence-list {
+  display: flex;
+  min-width: 50%;
+  height: 100%;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto; }
+  #sound-sequence-list li {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 20px;
+    flex-shrink: 0;
+    border-bottom: 1px solid #dddfe2; }
+    #sound-sequence-list li input[type=checkbox] {
+      width: 30px;
+      height: 30px;
+      margin-left: auto; }
+
+#exercise-data-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #dddfe2; }
+  #exercise-data-input h2 {
+    font-size: 1.3em;
+    margin-bottom: 20px; }
+  #exercise-data-input #harmony-select {
+    display: flex; }
+    #exercise-data-input #harmony-select input[type=radio] {
+      width: 30px;
+      height: 30px;
+      margin-bottom: 20px; }
+    #exercise-data-input #harmony-select label {
+      line-height: 40px;
+      margin: 0 10px 0 5px; }
+  #exercise-data-input #exercise-title-input {
+    margin-bottom: 20px;
+    height: 30px; }
+  #exercise-data-input textarea {
+    margin-bottom: 20px;
+    height: 200px; }
+  #exercise-data-input #sound-sequences-in-exercise {
+    height: 50px;
+    border: 1px solid #dddfe2;
+    margin-bottom: 20px;
+    padding: 10px; }
+  #exercise-data-input button {
+    height: 50px; }
