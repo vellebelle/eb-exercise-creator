@@ -61,7 +61,8 @@ body {
     line-height: 1.2em;
     padding: 20px; }
   #item-renderer #exercises {
-    overflow-y: auto; }
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; }
     #item-renderer #exercises #exercise-list {
       display: flex;
       flex-direction: column; }
@@ -102,7 +103,8 @@ body {
   height: 100%;
   flex-direction: column;
   flex: 1;
-  overflow-y: auto; }
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; }
   #sound-sequence-list li {
     display: flex;
     align-items: center;

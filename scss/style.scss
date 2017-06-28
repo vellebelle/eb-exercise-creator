@@ -76,7 +76,8 @@ body {
     padding: 20px;
   }
   #exercises {
-    overflow-y: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 
     #exercise-list {
       display: flex;
@@ -132,7 +133,8 @@ body {
   height: 100%;
   flex-direction: column;
   flex: 1;
-  overflow-y: auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 
   li {
     display: flex;
