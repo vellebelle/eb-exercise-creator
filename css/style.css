@@ -127,14 +127,23 @@ body {
     font-size: 1.3em;
     margin-bottom: 20px; }
   #exercise-data-input #harmony-select {
-    display: flex; }
-    #exercise-data-input #harmony-select input[type=radio] {
-      width: 30px;
-      height: 30px;
-      margin-bottom: 20px; }
+    display: flex;
+    margin-bottom: 20px; }
     #exercise-data-input #harmony-select label {
-      line-height: 40px;
-      margin: 0 10px 0 5px; }
+      border: 1px solid #dddfe2;
+      padding: 5px;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      cursor: pointer; }
+      #exercise-data-input #harmony-select label:first-of-type {
+        border-radius: 6px 0 0 6px; }
+      #exercise-data-input #harmony-select label:last-of-type {
+        border-radius: 0 6px 6px 0; }
+    #exercise-data-input #harmony-select input[type="radio"] {
+      display: none; }
+    #exercise-data-input #harmony-select input[type="radio"]:checked + label {
+      background: #A5DC86; }
   #exercise-data-input #exercise-title-input {
     margin-bottom: 20px;
     height: 30px; }
