@@ -17,7 +17,7 @@ var userExercises = {
     this["Identify Chords"] = utils.store("Identify Chords");
     this["Identify Chord Inversions"] = utils.store("Identify Chord Inversions");
     this["Identify Scales"] = utils.store("Identify Scales");
-    
+
     handlers.setupDisciplineBtnListeners();
     render.showView('exercise-selector');
   },
@@ -60,11 +60,11 @@ var userExercises = {
 var utils = {
   copyObject: function(obj) {
     // return obj if it's not an object
-    if (null == obj || "object" != typeof obj) return obj;
+    if (null === obj || "object" !== typeof obj) {return obj;}
     var copy = obj.constructor();
     // add each attribute of obj to the new copy
     for (var attr in obj) {
-      if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+      if (obj.hasOwnProperty(attr)) {copy[attr] = obj[attr];}
     }
     return copy;
   },
@@ -80,15 +80,15 @@ var utils = {
 
 var render = {
   displayExerciseList: function(discipline) {
-    
+
     $('#exercise-list').empty();
 
-    if (userExercises[discipline].length === 0) {  
+    if (userExercises[discipline].length === 0) {
       $('#no-exercises-in-discipline-text').text('There are no exercises in "' + discipline + '". Create one now!');
       $('#no-exercises-in-discipline-text').show();
     } else {
       $('#no-exercises-in-discipline-text').hide();
-      
+
       // Create a list item with title and buttons for every exercise in discipline
       userExercises[discipline].forEach(function(exercise, position) {
         var exerciseItem = document.createElement("li");
@@ -108,7 +108,7 @@ var render = {
         deleteEditButtons.appendChild(this.createButton('delete-exercise', 'Delete'));
         deleteEditButtons.appendChild(this.createButton('copy-exercise', 'Copy'));
         $('#exercise-list').append(exerciseItem);
-      }, this);     
+      }, this);
       this.showView('exercise-selector');
       handlers.setupExerciseItemListeners(discipline);
     }
@@ -123,7 +123,7 @@ var render = {
     $('.view').hide();
     $('#' + viewName).show();
   },
-  createButton(buttonClassName, buttonText) {
+  createButton: function(buttonClassName, buttonText) {
     var newButton = document.createElement('button');
     newButton.textContent = buttonText;
     newButton.className = buttonClassName;
@@ -143,6 +143,7 @@ var render = {
     $('#sound-sequences-in-exercise-label').text('');
     $('#sound-sequences-in-exercise').text('');
     $('#validation').text('');
+    $('#harmony-ascending').prop('checked', true);
   },
   displaySoundSequenceList: function(discipline, position, editMode) {
     this.clearExerciseEditorView();
@@ -173,34 +174,34 @@ var render = {
     }
 
       $('#sound-sequences-in-exercise-label').text(soundSequenceType + ' in this exercise:');
-    
-    // loop over each soundsequence name in the array and create the list 
+
+    // loop over each soundsequence name in the array and create the list
       soundSequenceArray.forEach(function(soundSequenceName, position) {
       var soundSequenceItem = document.createElement('li');
       soundSequenceItem.className = 'sound-sequence-item';
       soundSequenceItem.id = position;
       soundSequenceItem.textContent = soundSequenceName;
       soundSequenceItem.appendChild(this.createCheckBox());
-      var soundSequenceList = document.getElementById('sound-sequence-list');      
-      soundSequenceList.appendChild(soundSequenceItem); 
+      var soundSequenceList = document.getElementById('sound-sequence-list');
+      soundSequenceList.appendChild(soundSequenceItem);
     }, this);
-    
+
     // if in edit mode, check the boxes for selected soundsequences in exercises and add selected harmony, title and description to the form
     if (editMode) {
-      var currentExerciseBeingEdited = userExercises[discipline][position];      
+      var currentExerciseBeingEdited = userExercises[discipline][position];
       // check value of soundsequence in exercise
       currentExerciseBeingEdited.soundSequences.forEach(function(item) {
-        // loop over soundsequence list and check box if soundsequence name is equal to this levels soundsequences 
+        // loop over soundsequence list and check box if soundsequence name is equal to this levels soundsequences
         $('input[type=checkbox]').each(function() {
            if ($(this).closest('.sound-sequence-item').text() === item) {
              $(this).prop('checked', true);
            }
          });
       });
-      
+
       $('#exercise-title-input').val(currentExerciseBeingEdited.title);
       $('#exercise-description-input').val(currentExerciseBeingEdited.description);
-      
+
       // Determine the currentExerciseBeingEditied harmony and set checked property on the corresponding radio button
       switch (currentExerciseBeingEdited.harmony) {
         case 'Ascending':
@@ -214,14 +215,14 @@ var render = {
           break;
         case 'Random':
           $('#harmony-random').prop('checked', true);
-       }   
+       }
       handlers.setupCreateExerciseListeners(discipline, position, editMode); // editMode = true
     } else {
-      handlers.setupCreateExerciseListeners(discipline); 
+      handlers.setupCreateExerciseListeners(discipline);
     }
 
   },
-  displaySoundSequenceNamesList: function(soundSequencesInExercise) {   
+  displaySoundSequenceNamesList: function(soundSequencesInExercise) {
     $('#sound-sequences-in-exercise').text(soundSequencesInExercise);
   },
   displayEditExerciseMode: function(discipline, position) {
@@ -229,53 +230,53 @@ var render = {
     // pass in true as the last argument to render create exercise in edit mode
     this.displaySoundSequenceList(discipline, position, true);
   }
-  
+
 };
 
 var handlers = {
-  setupDisciplineBtnListeners: function() {   
+  setupDisciplineBtnListeners: function() {
 
-    var currentDisciplineSelected = 'Compare Interval Sizes'; 
+    var currentDisciplineSelected = 'Compare Interval Sizes';
     // sets Compare Interval Sizes to active and display the exerciselist
     $("#compare-interval-sizes-btn").addClass('select-discipline-btn-active');
-    render.displayExerciseList(currentDisciplineSelected); 
-    
-    $("#compare-interval-sizes-btn").click(function() { 
+    render.displayExerciseList(currentDisciplineSelected);
+
+    $("#compare-interval-sizes-btn").click(function() {
       currentDisciplineSelected = 'Compare Interval Sizes';
       $('.select-discipline-btn').removeClass('select-discipline-btn-active');
       $(this).addClass('select-discipline-btn-active');
-      render.displayExerciseList(currentDisciplineSelected); 
-    });   
+      render.displayExerciseList(currentDisciplineSelected);
+    });
     $("#identify-intervals-btn").click(function() {
       currentDisciplineSelected = 'Identify Intervals';
       $('.select-discipline-btn').removeClass('select-discipline-btn-active');
       $(this).addClass('select-discipline-btn-active');
-      render.displayExerciseList(currentDisciplineSelected); 
-    }); 
-    $("#identify-chords-btn").click(function() { 
+      render.displayExerciseList(currentDisciplineSelected);
+    });
+    $("#identify-chords-btn").click(function() {
       currentDisciplineSelected = 'Identify Chords';
       $('.select-discipline-btn').removeClass('select-discipline-btn-active');
       $(this).addClass('select-discipline-btn-active');
-      render.displayExerciseList(currentDisciplineSelected); 
-    }); 
-    $("#identify-chord-inversions-btn").click(function() { 
+      render.displayExerciseList(currentDisciplineSelected);
+    });
+    $("#identify-chord-inversions-btn").click(function() {
       currentDisciplineSelected = 'Identify Chord Inversions';
       $('.select-discipline-btn').removeClass('select-discipline-btn-active');
       $(this).addClass('select-discipline-btn-active');
-      render.displayExerciseList(currentDisciplineSelected); 
-    }); 
-    $("#identify-scales-btn").click(function() { 
+      render.displayExerciseList(currentDisciplineSelected);
+    });
+    $("#identify-scales-btn").click(function() {
       currentDisciplineSelected = 'Identify Scales';
       $('.select-discipline-btn').removeClass('select-discipline-btn-active');
       $(this).addClass('select-discipline-btn-active');
-      render.displayExerciseList(currentDisciplineSelected); 
+      render.displayExerciseList(currentDisciplineSelected);
     });
     // Create new exercise listener
     $('.create-new-exercise').click(function() {
       render.showView('exercise-creator');
       render.displaySoundSequenceList(currentDisciplineSelected);
     });
-    
+
   },
   setupExerciseItemListeners: function(discipline) {
     $('.exercise-item').click(function(event) {
@@ -295,26 +296,26 @@ var handlers = {
         var exerciseToEditId = ($(elementClicked).closest('.exercise-item').attr('id'));
         //render.showView('exercise-creator');
         render.displayEditExerciseMode(discipline, parseInt(exerciseToEditId));
-        
+
       }
       if (elementClicked.className !== 'delete-exercise' || 'edit-exercise' || 'copy-exercise') {
         var exerciseId = ($(elementClicked).closest('.exercise-item').attr('id'));
         render.displayExerciseInfo(discipline, exerciseId);
-      }      
+      }
     });
   },
   setupCreateExerciseListeners: function(discipline, position, editMode){
-   
+
     // Set up event listeners for checkbox change
     var currentlySelectedSoundSequencesArray = [];
     var currentlySelectedSoundSequencesString = '';
     $('input[type=checkbox]').change(function() {
       var soundSequenceItem = $(this).closest('.sound-sequence-item').text();
-      if (this.checked) {   
+      if (this.checked) {
         currentlySelectedSoundSequencesArray.push(soundSequenceItem);
         currentlySelectedSoundSequencesString = currentlySelectedSoundSequencesArray.join(', ');
         render.displaySoundSequenceNamesList(currentlySelectedSoundSequencesString);
-        
+
       } else if (this.checked === false) {
         var indexToRemove = currentlySelectedSoundSequencesArray.indexOf(soundSequenceItem);
         currentlySelectedSoundSequencesArray.splice(indexToRemove, 1);
@@ -322,21 +323,21 @@ var handlers = {
         render.displaySoundSequenceNamesList(currentlySelectedSoundSequencesString);
       }
       });
-    
+
     $('#save-exercise').off();
     $('#save-exercise').on('click', function() {
       var exerciseTitle = $('#exercise-title-input').val().trim();
       var exerciseDescription = $('#exercise-description-input').val().trim();
       var harmony = $('input[name=harmony]:checked').val();
       var soundSequenceArray = [];
-      
+
       $('input[type=checkbox]').each(function() {
         if (this.checked) {
           var soundSequenceName = $(this).closest('.sound-sequence-item').text();
           soundSequenceArray.push(soundSequenceName);
         }
       });
-      
+
       if (exerciseTitle === '') {
         exerciseTitle = 'Untitled Exercise';
       }
@@ -344,12 +345,10 @@ var handlers = {
       if (soundSequenceArray.length < 2) {
         $('#validation').text('Select at least two chords / intervals / scales'); // should happen in the render object and take name of discipline into account.
       } else if (editMode) {
-        console.log(position);
-        console.log('polsemiz');
         userExercises.editExercise(discipline, position, exerciseTitle, exerciseDescription, harmony, soundSequenceArray);             }
       else {
         userExercises.addExercise(discipline, exerciseTitle, exerciseDescription, harmony, soundSequenceArray);
-      }      
+      }
     });
   }
 };
