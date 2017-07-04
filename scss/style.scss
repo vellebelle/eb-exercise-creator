@@ -1,4 +1,6 @@
 
+@import '../css/fontello';
+
 $list-item-hover-color: pink;
 $border-color: #dddfe2;
 $discipline-selector-button-color: #777;
@@ -99,7 +101,7 @@ body {
           display: flex;
           flex: 1;
           flex-direction: row;
-
+          //font-family: 'fontello';
           button {
             margin-left: 1em;
           }
