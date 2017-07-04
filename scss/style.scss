@@ -16,7 +16,6 @@ body {
 #exercise-selector {
   display: flex;
   height: 100%;
-
 }
 .discipline-selector {
   display: flex;
@@ -76,7 +75,7 @@ body {
     padding: 20px;
   }
   #exercises {
-    overflow-y: scroll;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
     #exercise-list {
