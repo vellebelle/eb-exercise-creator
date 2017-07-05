@@ -166,7 +166,7 @@ body {
             font-size: 1.5em;
             cursor: pointer; }
             #item-renderer #exercises #exercise-list li .delete-edit-buttons .btn:hover {
-              color: green; }
+              color: #5c97ff; }
 
 #exercise-info {
   flex: 1;
