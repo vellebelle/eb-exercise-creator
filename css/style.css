@@ -154,15 +154,19 @@ body {
         padding: 20px;
         border-bottom: 1px solid #dddfe2; }
         #item-renderer #exercises #exercise-list li:hover {
-          background: pink; }
+          background: #dbe8ff; }
         #item-renderer #exercises #exercise-list li .exercise-title {
           flex: 4; }
         #item-renderer #exercises #exercise-list li .delete-edit-buttons {
           display: flex;
           flex: 1;
           flex-direction: row; }
-          #item-renderer #exercises #exercise-list li .delete-edit-buttons button {
-            margin-left: 1em; }
+          #item-renderer #exercises #exercise-list li .delete-edit-buttons .btn {
+            margin-left: .8em;
+            font-size: 1.5em;
+            cursor: pointer; }
+            #item-renderer #exercises #exercise-list li .delete-edit-buttons .btn:hover {
+              color: green; }
 
 #exercise-info {
   flex: 1;

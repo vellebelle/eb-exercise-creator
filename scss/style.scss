@@ -1,7 +1,7 @@
 
 @import '../css/fontello';
 
-$list-item-hover-color: pink;
+$list-item-hover-color: #dbe8ff;
 $border-color: #dddfe2;
 $discipline-selector-button-color: #777;
 $discipline-selector-text-color: #fff;
@@ -102,8 +102,13 @@ body {
           flex: 1;
           flex-direction: row;
           //font-family: 'fontello';
-          button {
-            margin-left: 1em;
+          .btn {
+            margin-left: .8em;
+            font-size: 1.5em;
+            cursor: pointer;
+            &:hover {
+              color: green;
+            }
           }
         }
       }

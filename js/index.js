@@ -104,9 +104,9 @@ var render = {
 
         exerciseItem.appendChild(exerciseTitle);
         exerciseItem.appendChild(deleteEditButtons);
-        deleteEditButtons.appendChild(this.createButton('edit-exercise', 'Edit'));
-        deleteEditButtons.appendChild(this.createButton('delete-exercise', 'Delete'));
-        deleteEditButtons.appendChild(this.createButton('copy-exercise', 'Copy'));
+        deleteEditButtons.appendChild(this.createButton('edit-exercise btn icon-edit'));
+        deleteEditButtons.appendChild(this.createButton('delete-exercise btn icon-trash-empty'));
+        deleteEditButtons.appendChild(this.createButton('copy-exercise btn icon-docs'));
         $('#exercise-list').append(exerciseItem);
       }, this);
       this.showView('exercise-selector');
@@ -123,9 +123,8 @@ var render = {
     $('.view').hide();
     $('#' + viewName).show();
   },
-  createButton: function(buttonClassName, buttonText) {
-    var newButton = document.createElement('button');
-    newButton.textContent = buttonText;
+  createButton: function(buttonClassName) {
+    var newButton = document.createElement('div');
     newButton.className = buttonClassName;
     return newButton;
   },
@@ -281,15 +280,15 @@ var handlers = {
   setupExerciseItemListeners: function(discipline) {
     $('.exercise-item').click(function(event) {
       var elementClicked = event.target;
-      if (elementClicked.className === 'delete-exercise') {
+      if ($(elementClicked).hasClass('delete-exercise')) {
         var exerciseToDeleteId = ($(elementClicked).closest('.exercise-item').attr('id'));
         userExercises.deleteExercise(discipline, parseInt(exerciseToDeleteId));
       }
-      if (elementClicked.className === 'copy-exercise') {
+      if ($(elementClicked).hasClass('copy-exercise')) {
         var exerciseToCopyId = ($(elementClicked).closest('.exercise-item').attr('id'));
         userExercises.copyExercise(discipline, parseInt(exerciseToCopyId));
       }
-      if (elementClicked.className === 'edit-exercise') {
+      if ($(elementClicked).hasClass('edit-exercise')) {
         // Go to the create screen and populate soundsequencelist with soundsequences in the exercise
         // populate the form with existing data from exercise
         // save and overwrite the current exercise
