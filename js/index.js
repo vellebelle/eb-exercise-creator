@@ -113,7 +113,18 @@ var render = {
       handlers.setupExerciseItemListeners(discipline);
     }
   },
-  displayExerciseInfo: function(discipline, exercise) {
+  displayExerciseInfo: function(discipline, exercise, exerciseElementClicked) {
+    console.log(discipline, exercise, exerciseElementClicked);
+
+    $('.btn-selected').removeClass('btn-selected');
+    // if the first element in the list is selected either on click or predefined, then add the selected class to the item
+    if (exercise === 0) {
+      $('#exercise-list li:first').addClass('btn-selected');
+    }
+
+    $(exerciseElementClicked).addClass('btn-selected');
+    // add active selected state to the exercise list item selected...
+
     var exerciseInfoTitle = userExercises[discipline][exercise].title;
     var exerciseInfoDescription = userExercises[discipline][exercise].description;
     $('.exercise-info-title').text(exerciseInfoTitle);
@@ -307,9 +318,7 @@ var handlers = {
 
       if (elementClicked.className !== 'delete-exercise' || 'edit-exercise' || 'copy-exercise') {
         var exerciseId = ($(elementClicked).closest('.exercise-item').attr('id'));
-        $('.btn-selected').removeClass('btn-selected');
-        $(this).addClass('btn-selected');
-        render.displayExerciseInfo(discipline, exerciseId);
+        render.displayExerciseInfo(discipline, exerciseId, this);
       }
     });
   },
