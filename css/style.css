@@ -113,7 +113,7 @@ body {
     .discipline-selector .select-discipline-btn:hover {
       background: #7f7f7f; }
   .discipline-selector .select-discipline-btn-active {
-    background: #6f6f6f !important; }
+    background: #6f6f6f; }
 
 #item-renderer {
   display: flex;
@@ -147,6 +147,8 @@ body {
     #item-renderer #exercises #exercise-list {
       display: flex;
       flex-direction: column; }
+      #item-renderer #exercises #exercise-list .btn-selected {
+        background: #dbe8ff; }
       #item-renderer #exercises #exercise-list li {
         display: flex;
         align-items: center;

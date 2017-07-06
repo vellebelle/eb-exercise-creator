@@ -1,7 +1,7 @@
 
 @import '../css/fontello';
 
-$list-item-hover-color: #dbe8ff;
+$list-item-selected-color: #dbe8ff;
 $border-color: #dddfe2;
 $discipline-selector-button-color: #777;
 $discipline-selector-text-color: #fff;
@@ -43,7 +43,7 @@ body {
     }
   }
   .select-discipline-btn-active {
-      background: darken($discipline-selector-button-color, 3%)!important;
+      background: darken($discipline-selector-button-color, 3%);
     }
 }
 #item-renderer {
@@ -83,15 +83,18 @@ body {
     #exercise-list {
       display: flex;
       flex-direction: column;
-
+      .btn-selected {
+        background: $list-item-selected-color;
+      }
       li {
         display: flex;
         align-items: center;
         height: 50px;
         padding: 20px;
         border-bottom: 1px solid $border-color;
+
         &:hover {
-          background: $list-item-hover-color;
+          background: $list-item-selected-color;
         }
 
         .exercise-title {
@@ -107,7 +110,7 @@ body {
             font-size: 1.5em;
             cursor: pointer;
             &:hover {
-              color: darken($list-item-hover-color, 25%);
+              color: darken($list-item-selected-color, 25%);
             }
           }
         }

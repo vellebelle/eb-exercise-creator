@@ -304,8 +304,11 @@ var handlers = {
         render.displayEditExerciseMode(discipline, parseInt(exerciseToEditId));
 
       }
+
       if (elementClicked.className !== 'delete-exercise' || 'edit-exercise' || 'copy-exercise') {
         var exerciseId = ($(elementClicked).closest('.exercise-item').attr('id'));
+        $('.btn-selected').removeClass('btn-selected');
+        $(this).addClass('btn-selected');
         render.displayExerciseInfo(discipline, exerciseId);
       }
     });
