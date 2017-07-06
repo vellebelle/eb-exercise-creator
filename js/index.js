@@ -114,7 +114,6 @@ var render = {
     }
   },
   displayExerciseInfo: function(discipline, exercise, exerciseElementClicked) {
-    console.log(discipline, exercise, exerciseElementClicked);
 
     $('.btn-selected').removeClass('btn-selected');
     // if the first element in the list is selected either on click or predefined, then add the selected class to the item
