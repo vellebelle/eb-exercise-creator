@@ -239,36 +239,43 @@ var handlers = {
     // sets Compare Interval Sizes to active and display the exerciselist
     $("#compare-interval-sizes-btn").addClass('select-discipline-btn-active');
     render.displayExerciseList(currentDisciplineSelected);
+    // Select the first exercise item in the list and show its title and description
+    render.displayExerciseInfo(currentDisciplineSelected, 0);
 
     $("#compare-interval-sizes-btn").click(function() {
       currentDisciplineSelected = 'Compare Interval Sizes';
       $('.select-discipline-btn').removeClass('select-discipline-btn-active');
       $(this).addClass('select-discipline-btn-active');
       render.displayExerciseList(currentDisciplineSelected);
+      render.displayExerciseInfo(currentDisciplineSelected, 0);
     });
     $("#identify-intervals-btn").click(function() {
       currentDisciplineSelected = 'Identify Intervals';
       $('.select-discipline-btn').removeClass('select-discipline-btn-active');
       $(this).addClass('select-discipline-btn-active');
       render.displayExerciseList(currentDisciplineSelected);
+      render.displayExerciseInfo(currentDisciplineSelected, 0);
     });
     $("#identify-chords-btn").click(function() {
       currentDisciplineSelected = 'Identify Chords';
       $('.select-discipline-btn').removeClass('select-discipline-btn-active');
       $(this).addClass('select-discipline-btn-active');
       render.displayExerciseList(currentDisciplineSelected);
+      render.displayExerciseInfo(currentDisciplineSelected, 0);
     });
     $("#identify-chord-inversions-btn").click(function() {
       currentDisciplineSelected = 'Identify Chord Inversions';
       $('.select-discipline-btn').removeClass('select-discipline-btn-active');
       $(this).addClass('select-discipline-btn-active');
       render.displayExerciseList(currentDisciplineSelected);
+      render.displayExerciseInfo(currentDisciplineSelected, 0);
     });
     $("#identify-scales-btn").click(function() {
       currentDisciplineSelected = 'Identify Scales';
       $('.select-discipline-btn').removeClass('select-discipline-btn-active');
       $(this).addClass('select-discipline-btn-active');
       render.displayExerciseList(currentDisciplineSelected);
+      render.displayExerciseInfo(currentDisciplineSelected, 0);
     });
     // Create new exercise listener
     $('.create-new-exercise').click(function() {
