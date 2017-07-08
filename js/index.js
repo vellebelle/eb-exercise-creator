@@ -126,7 +126,7 @@ var render = {
     var exerciseInfoTitle = '';
     var exerciseInfoDescription = '';
     // Check if userExercises[discipline] is undefined and return empty string if they are
-    if (userExercises[discipline] === undefined) {
+    if (userExercises[discipline]) {
       $('.exercise-info-title').text(exerciseInfoTitle);
       $('.exercise-info-description').text(exerciseInfoDescription);
     } else {
