@@ -142,8 +142,7 @@
 	"creationDate": 520329729,
 	"displayValue": "eb-exercise-creator",
 	"displayValueWasSetByUser": 0,
-	"iconImageName": "meme-angryPicard",
-	"lastBuiltDate": 521043196
+	"iconImageName": "meme-angryPicard"
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

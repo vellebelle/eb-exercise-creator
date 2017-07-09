@@ -88,9 +88,14 @@ body {
   min-width: 768px;
   min-height: 400px; }
 
+#top-navigation-bar {
+  display: block;
+  height: 10%;
+  background: black; }
+
 #exercise-selector {
   display: flex;
-  height: 100%; }
+  height: 90%; }
 
 .discipline-selector {
   display: flex;
