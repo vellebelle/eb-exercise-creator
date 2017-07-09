@@ -125,7 +125,7 @@ var render = {
 
     var exerciseInfoTitle = '';
     var exerciseInfoDescription = '';
-    // Check if userExercises[discipline] is undefined (returns true) and set exercise info accordingl 
+    // Check if userExercises[discipline] is undefined (returns true) and set exercise info accordingl
     if (userExercises[discipline]) {
       $('.exercise-info-title').text(exerciseInfoTitle);
       $('.exercise-info-description').text(exerciseInfoDescription);

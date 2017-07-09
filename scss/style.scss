@@ -24,9 +24,11 @@ body {
   height: 10%;
   min-height: 50px;
   background: $top-navigation-background;
+  color: white;
     h1 {
-      color: $discipline-selector-text-color;
+      font-size: 1.2em;
     }
+
 }
 
 #exercise-selector {
