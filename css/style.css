@@ -89,9 +89,14 @@ body {
   min-height: 400px; }
 
 #top-navigation-bar {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 10%;
-  background: black; }
+  min-height: 50px;
+  background: #15161b; }
+  #top-navigation-bar h1 {
+    color: #fff; }
 
 #exercise-selector {
   display: flex;
@@ -186,7 +191,7 @@ body {
 #exercise-creator {
   display: flex;
   flex-direction: row;
-  height: 100%;
+  height: 90%;
   box-sizing: border-box; }
 
 #sound-sequence-list {
