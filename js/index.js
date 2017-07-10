@@ -123,19 +123,24 @@ var render = {
     }
       $(exerciseElementClicked).addClass('btn-selected');
 
-    var exerciseInfoTitle = '';
+    var exerciseInfoTitle = 'sfsfsfd';
     var exerciseInfoDescription = '';
-    // Check if userExercises[discipline] is undefined (returns true) and set exercise info accordingl
+    // Check if userExercises[discipline] is undefined (returns true) and set exercise info accordingly
     if (userExercises[discipline]) {
       $('.exercise-info-title').text(exerciseInfoTitle);
       $('.exercise-info-description').text(exerciseInfoDescription);
     } else {
       // polulate exercise info with title and description
-      exerciseInfoTitle = userExercises[discipline][exercise].title;
-      exerciseInfoDescription = userExercises[discipline][exercise].description;
+      var exerciseInfoTitle = userExercises[discipline][exercise].title;
+      var exerciseInfoDescription = userExercises[discipline][exercise].description;
       $('.exercise-info-title').text(exerciseInfoTitle);
       $('.exercise-info-description').text(exerciseInfoDescription);
     }
+
+    // var exerciseInfoTitle = userExercises[discipline][exercise].title;
+    // var exerciseInfoDescription = userExercises[discipline][exercise].description;
+    // $('.exercise-info-title').text(exerciseInfoTitle);
+    // $('.exercise-info-description').text(exerciseInfoDescription);
 
 
   },

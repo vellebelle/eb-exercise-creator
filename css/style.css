@@ -95,13 +95,16 @@ body {
 #top-navigation-bar {
   display: flex;
   align-items: center;
-  justify-content: center;
   height: 10%;
   min-height: 50px;
   background: #15161b;
   color: white; }
+  #top-navigation-bar .back-arrow {
+    margin-right: auto;
+    font-size: 2em; }
   #top-navigation-bar h1 {
-    font-size: 1.2em; }
+    font-size: 1.2em;
+    text-align: center; }
 
 #exercise-selector {
   display: flex;

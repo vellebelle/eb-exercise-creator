@@ -20,13 +20,18 @@ body {
 #top-navigation-bar {
   display: flex;
   align-items: center;
-  justify-content: center;
+  //justify-content: center;
   height: 10%;
   min-height: 50px;
   background: $top-navigation-background;
   color: white;
+    .back-arrow {
+      margin-right: auto;
+      font-size: 2em;
+    }
     h1 {
       font-size: 1.2em;
+      text-align: center;
     }
 
 }
