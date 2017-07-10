@@ -123,16 +123,20 @@ var render = {
     }
       $(exerciseElementClicked).addClass('btn-selected');
 
-    var exerciseInfoTitle = 'sfsfsfd';
+    var exerciseInfoTitle = '';
     var exerciseInfoDescription = '';
     // Check if userExercises[discipline] is undefined (returns true) and set exercise info accordingly
-    if (userExercises[discipline]) {
+    console.log(typeof userExercises[discipline]);
+    console.log(typeof userExercises[discipline] === 'object');
+    // check if the first item in an exercise is undefined and set exercise info accordingly
+    if (typeof userExercises[discipline][0] === 'undefined') {
+
       $('.exercise-info-title').text(exerciseInfoTitle);
       $('.exercise-info-description').text(exerciseInfoDescription);
     } else {
-      // polulate exercise info with title and description
-      var exerciseInfoTitle = userExercises[discipline][exercise].title;
-      var exerciseInfoDescription = userExercises[discipline][exercise].description;
+
+      exerciseInfoTitle = userExercises[discipline][exercise].title;
+      exerciseInfoDescription = userExercises[discipline][exercise].description;
       $('.exercise-info-title').text(exerciseInfoTitle);
       $('.exercise-info-description').text(exerciseInfoDescription);
     }
