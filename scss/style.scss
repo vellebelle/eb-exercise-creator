@@ -34,9 +34,13 @@ body {
     h1 {
       position:absolute;
       left: 50%;
-      transform: translateX(-50%);
+      top: 50%;
+      transform: translate(-50%, -50%);
+      line-height: -1.4em;
+      //transform: translateY(-50%);
       font-size: 1.4em;
       letter-spacing: .05em;
+      line-height: 1.4em;
     }
 
 }
