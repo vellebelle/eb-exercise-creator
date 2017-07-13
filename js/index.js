@@ -120,14 +120,25 @@ var render = {
     if (exercise === 0) {
       $('#exercise-list li:first').addClass('btn-selected');
     }
+      $(exerciseElementClicked).addClass('btn-selected');
 
-    $(exerciseElementClicked).addClass('btn-selected');
-    // add active selected state to the exercise list item selected...
+    var exerciseInfoTitle = '';
+    var exerciseInfoDescription = '';
+    // Check if userExercises[discipline] is undefined (returns true) and set exercise info accordingly
+    console.log(typeof userExercises[discipline]);
+    console.log(typeof userExercises[discipline] === 'object');
+    // check if the first item in an exercise is undefined and set exercise info accordingly
+    if (userExercises[discipline][0] === 'undefined') {
+      $('.exercise-info-title').text(exerciseInfoTitle);
+      $('.exercise-info-description').text(exerciseInfoDescription);
+    } else {
+      // if the exercise
+      exerciseInfoTitle = userExercises[discipline][exercise].title;
+      exerciseInfoDescription = userExercises[discipline][exercise].description;
+      $('.exercise-info-title').text(exerciseInfoTitle);
+      $('.exercise-info-description').text(exerciseInfoDescription);
+    }
 
-    var exerciseInfoTitle = userExercises[discipline][exercise].title;
-    var exerciseInfoDescription = userExercises[discipline][exercise].description;
-    $('.exercise-info-title').text(exerciseInfoTitle);
-    $('.exercise-info-description').text(exerciseInfoDescription);
   },
   showView: function(viewName) {
     $('.view').hide();

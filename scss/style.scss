@@ -5,6 +5,7 @@ $list-item-selected-color: #dbe8ff;
 $border-color: #dddfe2;
 $discipline-selector-button-color: #777;
 $discipline-selector-text-color: #fff;
+$top-navigation-background: #15161b;
 
 body {
   font-family: arial, sans-serif;
@@ -15,9 +16,29 @@ body {
   min-width: 768px;
   min-height: 400px;
 }
+
+#top-navigation-bar {
+  display: flex;
+  align-items: center;
+  //justify-content: center;
+  height: 10%;
+  min-height: 50px;
+  background: $top-navigation-background;
+  color: white;
+    .back-arrow {
+      margin-right: auto;
+      font-size: 2em;
+    }
+    h1 {
+      font-size: 1.2em;
+      text-align: center;
+    }
+
+}
+
 #exercise-selector {
   display: flex;
-  height: 100%;
+  height: 90%;
 }
 .discipline-selector {
   display: flex;
@@ -133,7 +154,7 @@ body {
 #exercise-creator {
   display: flex;
   flex-direction: row;
-  height: 100%;
+  height: 90%;
   box-sizing: border-box;
 }
 #sound-sequence-list {
