@@ -161,6 +161,7 @@ var render = {
   },
   createCheckBox: function() {
     var checkBox = document.createElement('input');
+    //var label = document.createElement('label');
     checkBox.type = 'checkbox';
     checkBox.className = 'include-sound-sequence';
     return checkBox;
@@ -211,10 +212,16 @@ var render = {
     // loop over each soundsequence name in the array and create the list
       soundSequenceArray.forEach(function(soundSequenceName, position) {
       var soundSequenceItem = document.createElement('li');
+      var soundSequenceLabel = document.createElement('label');
+      var checkBoxDiv = document.createElement('div');
       soundSequenceItem.className = 'sound-sequence-item';
+      soundSequenceLabel.className = 'checkbox';
+      checkBoxDiv.className = 'box';
       soundSequenceItem.id = position;
       soundSequenceItem.textContent = soundSequenceName;
-      soundSequenceItem.appendChild(this.createCheckBox());
+      soundSequenceItem.appendChild(soundSequenceLabel);
+      soundSequenceLabel.appendChild(this.createCheckBox());
+      soundSequenceLabel.appendChild(checkBoxDiv);
       var soundSequenceList = document.getElementById('sound-sequence-list');
       soundSequenceList.appendChild(soundSequenceItem);
     }, this);

@@ -102,7 +102,8 @@ body {
   color: white; }
   #top-navigation-bar .back-arrow {
     margin-right: auto;
-    font-size: 2em; }
+    font-size: 2em;
+    cursor: pointer; }
   #top-navigation-bar h1 {
     position: absolute;
     left: 50%;
@@ -151,7 +152,8 @@ body {
     background: #eee;
     font-size: 1.5em;
     border-bottom: 1px solid #dddfe2;
-    padding: 10px; }
+    padding: 10px;
+    cursor: pointer; }
     #item-renderer .create-new-exercise .plus-sign {
       font-size: 2.2em;
       margin-left: 5px; }
@@ -221,10 +223,18 @@ body {
     padding: 20px;
     flex-shrink: 0;
     border-bottom: 1px solid #dddfe2; }
-    #sound-sequence-list li input[type=checkbox] {
-      width: 30px;
-      height: 30px;
-      margin-left: auto; }
+    #sound-sequence-list li label {
+      margin-left: auto;
+      width: 40px;
+      height: 40px;
+      border: 2px solid #dddfe2; }
+      #sound-sequence-list li label input[type="checkbox"] {
+        display: none; }
+        #sound-sequence-list li label input[type="checkbox"]:checked + .box {
+          background-color: #b3ffb7; }
+      #sound-sequence-list li label .box {
+        width: 100%;
+        height: 100%; }
 
 #exercise-data-input {
   display: flex;
@@ -253,7 +263,7 @@ body {
     #exercise-data-input #harmony-select input[type="radio"] {
       display: none; }
     #exercise-data-input #harmony-select input[type="radio"]:checked + label {
-      background: #01c78a;
+      background: #0095ff;
       color: white; }
   #exercise-data-input #exercise-title-input {
     margin-bottom: 20px;
