@@ -106,7 +106,9 @@ body {
   #top-navigation-bar h1 {
     position: absolute;
     left: 50%;
-    font-size: 1.4em; }
+    transform: translateX(-50%);
+    font-size: 1.4em;
+    letter-spacing: .05em; }
 
 #exercise-selector {
   display: flex;

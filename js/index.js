@@ -80,7 +80,18 @@ var utils = {
 
 var render = {
   displayExerciseList: function(discipline) {
+    // Hide the back  arrow from the select exercise screen and set title
+    $('.back-arrow').hide();
+    $('.navigation-title').text('Select exercise');
 
+    // Setup listener for back button TEST TEST TEST SHOULD BE IN THE HANDLERS OBJECT
+    $('.back-arrow').on('click', function() {
+      render.showView('exercise-selector');
+      $('.back-arrow').hide();
+      $('.navigation-title').text('Select exercise');
+    });
+
+    // Empty all exercises from list
     $('#exercise-list').empty();
 
     if (userExercises[discipline].length === 0) {
@@ -166,6 +177,9 @@ var render = {
   },
   displaySoundSequenceList: function(discipline, position, editMode) {
     this.clearExerciseEditorView();
+    // Show the back button on the create exercise screen and update title
+    $('.back-arrow').show();
+    $('.navigation-title').text('Create "' + discipline + '" exercise');
     var soundSequenceArray = [];
     var soundSequenceType = '';
     // check which discipline is selected and set soundSequenceArray to the corresponding array
