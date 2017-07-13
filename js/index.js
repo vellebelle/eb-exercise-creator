@@ -114,6 +114,7 @@ var render = {
     }
   },
   displayExerciseInfo: function(discipline, exercise, exerciseElementClicked) {
+    console.log(discipline, exercise, exerciseElementClicked);
 
     $('.btn-selected').removeClass('btn-selected');
     // if the first element in the list is selected either on click or predefined, then add the selected class to the item
@@ -128,7 +129,7 @@ var render = {
     console.log(typeof userExercises[discipline]);
     console.log(typeof userExercises[discipline] === 'object');
     // check if the first item in an exercise is undefined and set exercise info accordingly
-    if (userExercises[discipline][0] === 'undefined') {
+    if (typeof userExercises[discipline][0] === 'undefined') {
       $('.exercise-info-title').text(exerciseInfoTitle);
       $('.exercise-info-description').text(exerciseInfoDescription);
     } else {
