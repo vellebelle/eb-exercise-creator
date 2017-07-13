@@ -95,6 +95,7 @@ body {
 #top-navigation-bar {
   display: flex;
   align-items: center;
+  position: relative;
   height: 10%;
   min-height: 50px;
   background: #15161b;
@@ -103,8 +104,9 @@ body {
     margin-right: auto;
     font-size: 2em; }
   #top-navigation-bar h1 {
-    font-size: 1.2em;
-    text-align: center; }
+    position: absolute;
+    left: 50%;
+    font-size: 1.4em; }
 
 #exercise-selector {
   display: flex;
