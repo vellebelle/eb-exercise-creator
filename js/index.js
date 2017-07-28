@@ -80,7 +80,18 @@ var utils = {
 
 var render = {
   displayExerciseList: function(discipline) {
+    // Hide the back  arrow from the select exercise screen and set title
+    $('.back-arrow').hide();
+    $('.navigation-title').text('Select exercise');
 
+    // Setup listener for back button TEST TEST TEST SHOULD BE IN THE HANDLERS OBJECT
+    $('.back-arrow').on('click', function() {
+      render.showView('exercise-selector');
+      $('.back-arrow').hide();
+      $('.navigation-title').text('Select exercise');
+    });
+
+    // Empty all exercises from list
     $('#exercise-list').empty();
 
     if (userExercises[discipline].length === 0) {
@@ -114,7 +125,6 @@ var render = {
     }
   },
   displayExerciseInfo: function(discipline, exercise, exerciseElementClicked) {
-    console.log(discipline, exercise, exerciseElementClicked);
 
     $('.btn-selected').removeClass('btn-selected');
     // if the first element in the list is selected either on click or predefined, then add the selected class to the item
@@ -126,8 +136,7 @@ var render = {
     var exerciseInfoTitle = '';
     var exerciseInfoDescription = '';
     // Check if userExercises[discipline] is undefined (returns true) and set exercise info accordingly
-    console.log(typeof userExercises[discipline]);
-    console.log(typeof userExercises[discipline] === 'object');
+
     // check if the first item in an exercise is undefined and set exercise info accordingly
     if (typeof userExercises[discipline][0] === 'undefined') {
       $('.exercise-info-title').text(exerciseInfoTitle);
@@ -152,6 +161,7 @@ var render = {
   },
   createCheckBox: function() {
     var checkBox = document.createElement('input');
+    //var label = document.createElement('label');
     checkBox.type = 'checkbox';
     checkBox.className = 'include-sound-sequence';
     return checkBox;
@@ -168,6 +178,9 @@ var render = {
   },
   displaySoundSequenceList: function(discipline, position, editMode) {
     this.clearExerciseEditorView();
+    // Show the back button on the create exercise screen and update title
+    $('.back-arrow').show();
+    $('.navigation-title').text('Create "' + discipline + '" exercise');
     var soundSequenceArray = [];
     var soundSequenceType = '';
     // check which discipline is selected and set soundSequenceArray to the corresponding array
@@ -199,10 +212,16 @@ var render = {
     // loop over each soundsequence name in the array and create the list
       soundSequenceArray.forEach(function(soundSequenceName, position) {
       var soundSequenceItem = document.createElement('li');
+      var soundSequenceLabel = document.createElement('label');
+      var checkBoxDiv = document.createElement('div');
       soundSequenceItem.className = 'sound-sequence-item';
+      soundSequenceLabel.className = 'checkbox';
+      checkBoxDiv.className = 'box';
       soundSequenceItem.id = position;
       soundSequenceItem.textContent = soundSequenceName;
-      soundSequenceItem.appendChild(this.createCheckBox());
+      soundSequenceItem.appendChild(soundSequenceLabel);
+      soundSequenceLabel.appendChild(this.createCheckBox());
+      soundSequenceLabel.appendChild(checkBoxDiv);
       var soundSequenceList = document.getElementById('sound-sequence-list');
       soundSequenceList.appendChild(soundSequenceItem);
     }, this);

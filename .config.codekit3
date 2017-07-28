@@ -15,6 +15,15 @@
 		"oAP": "\/.gitattributes",
 		"oF": 0
 		},
+<<<<<<< HEAD
+=======
+	"\/.gitignore": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/.gitignore",
+		"oF": 0
+		},
+>>>>>>> 088c57e52251a6e0ec8c195d74edca83aa5a44a5
 	"\/css\/fontello.css": {
 		"aP": 1,
 		"bl": 0,
@@ -86,10 +95,10 @@
 		},
 	"\/js\/index.js": {
 		"ft": 64,
-		"mi": 1,
-		"oA": 0,
+		"mi": 0,
+		"oA": 1,
 		"oAP": "\/js\/index-min.js",
-		"oF": 0,
+		"oF": 1,
 		"sC": 0,
 		"tS": 0
 		},
@@ -100,6 +109,15 @@
 		"oAP": "\/js\/jquery-3.2.1.min-min.js",
 		"oF": 0,
 		"sC": 1,
+		"tS": 0
+		},
+	"\/js\/sound-sequences-defined.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/js\/sound-sequences-defined-min.js",
+		"oF": 1,
+		"sC": 0,
 		"tS": 0
 		},
 	"\/README.md": {
