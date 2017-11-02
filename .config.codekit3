@@ -16,6 +16,8 @@
 		"oAP": "\/.gitattributes",
 		"oF": 0
 		},
+<<<<<<< HEAD
+=======
 	"\/.gitignore": {
 		"cB": 0,
 		"ft": 8192,
@@ -23,6 +25,7 @@
 		"oAP": "\/.gitignore",
 		"oF": 0
 		},
+>>>>>>> 088c57e52251a6e0ec8c195d74edca83aa5a44a5
 	"\/css\/fontello.css": {
 		"aP": 1,
 		"bl": 0,
