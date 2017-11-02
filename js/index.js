@@ -75,6 +75,47 @@ var utils = {
       var store = localStorage.getItem(storageKey);
       return (store && JSON.parse(store)) || [];
     }
+  },
+  getSoundsequenceArray: function(disciplineName) {
+    var soundSequenceInfo = [];
+
+    switch (disciplineName) {
+      case 'Compare Interval Sizes':
+        soundSequenceInfo.push(intervalNames);
+        soundSequenceInfo.push('Intervals');
+        return soundSequenceInfo;
+        break;
+      case 'Identify Intervals':
+        soundSequenceInfo.push(intervalNames);
+        soundSequenceInfo.push('Intervals');
+        return soundSequenceInfo;
+        break;
+      case 'Identify Chords':
+        soundSequenceInfo.push(chordNames);
+        soundSequenceInfo.push('Chords');
+        return soundSequenceInfo;
+        break;
+      case 'Identify Chord Inversions':
+        soundSequenceInfo.push(chordInversionNames);
+        soundSequenceInfo.push('Chords');
+        return soundSequenceInfo;
+        break;
+      case 'Identify Scales':
+        soundSequenceInfo.push(scaleNames);
+        soundSequenceInfo.push('Scales');
+        return soundSequenceInfo;
+        break;
+    }
+  },
+  getOrderedSoundSequenceArray: function(originalOrder, arrayToSort) {
+    var itemsInOrder = [];
+
+    for (var i = 0; i < originalOrder.length; i++) {
+      if (arrayToSort.indexOf(originalOrder[i]) > -1) {
+        itemsInOrder.push(originalOrder[i]);
+      }
+    }
+    return itemsInOrder;
   }
 };
 
@@ -181,36 +222,15 @@ var render = {
     // Show the back button on the create exercise screen and update title
     $('.back-arrow').show();
     $('.navigation-title').text('Create "' + discipline + '" exercise');
-    var soundSequenceArray = [];
-    var soundSequenceType = '';
-    // check which discipline is selected and set soundSequenceArray to the corresponding array
-    switch (discipline) {
-      case 'Compare Interval Sizes':
-        soundSequenceArray = intervalNames;
-        soundSequenceType = 'Intervals';
-        break;
-      case 'Identify Intervals':
-        soundSequenceArray = intervalNames;
-        soundSequenceType = 'Intervals';
-        break;
-      case 'Identify Chords':
-        soundSequenceArray = chordNames;
-        soundSequenceType = 'Chords';
-        break;
-      case 'Identify Chord Inversions':
-        soundSequenceArray = chordInversionNames;
-        soundSequenceType = 'Chords';
-        break;
-      case 'Identify Scales':
-        soundSequenceArray = scaleNames;
-        soundSequenceType = 'Scales';
-        break;
-    }
 
-      $('#sound-sequences-in-exercise-label').text(soundSequenceType + ' in this exercise:');
+    // check which discipline is selected and set soundSequenceArray to the corresponding array
+    var soundSequenceInfo = utils.getSoundsequenceArray(discipline);
+
+
+      $('#sound-sequences-in-exercise-label').text(soundSequenceInfo[1] + ' in this exercise:');
 
     // loop over each soundsequence name in the array and create the list
-      soundSequenceArray.forEach(function(soundSequenceName, position) {
+      soundSequenceInfo[0].forEach(function(soundSequenceName, position) {
       var soundSequenceItem = document.createElement('li');
       var soundSequenceLabel = document.createElement('label');
       var checkBoxDiv = document.createElement('div');
@@ -353,6 +373,10 @@ var handlers = {
     });
   },
   setupCreateExerciseListeners: function(discipline, position, editMode){
+  console.log(discipline, position, editMode);
+
+    // Set variable to contain the correct array of sound sequences
+    var originalSoundSequenceList = utils.getSoundsequenceArray(discipline);
 
     // Set up event listeners for checkbox change
     var currentlySelectedSoundSequencesArray = [];
@@ -361,14 +385,25 @@ var handlers = {
       var soundSequenceItem = $(this).closest('.sound-sequence-item').text();
       if (this.checked) {
         currentlySelectedSoundSequencesArray.push(soundSequenceItem);
-        currentlySelectedSoundSequencesString = currentlySelectedSoundSequencesArray.join(', ');
+
+        // get the right order here...
+        // if discipline is intervals, order array using the intervalNames array
+        // if discipline is identify chords, order array using the chordNames array
+        // etc etc... This should happen outside the conditional statement, so we already know which array to sort from..
+
+        var sortedCurrentlySelectedSoundSequenceArray = utils.getOrderedSoundSequenceArray(originalSoundSequenceList[0], currentlySelectedSoundSequencesArray);
+        currentlySelectedSoundSequencesString = sortedCurrentlySelectedSoundSequenceArray.join(', ');
+
         render.displaySoundSequenceNamesList(currentlySelectedSoundSequencesString);
 
       } else if (this.checked === false) {
         var indexToRemove = currentlySelectedSoundSequencesArray.indexOf(soundSequenceItem);
         currentlySelectedSoundSequencesArray.splice(indexToRemove, 1);
-        currentlySelectedSoundSequencesString = currentlySelectedSoundSequencesArray.join(', ');
-        render.displaySoundSequenceNamesList(currentlySelectedSoundSequencesString);
+
+        var sortedCurrentlySelectedSoundSequenceArray = utils.getOrderedSoundSequenceArray(originalSoundSequenceList[0], currentlySelectedSoundSequencesArray);
+
+        sortedCurrentlySelectedSoundSequenceArray = currentlySelectedSoundSequencesArray.join(', ');
+        render.displaySoundSequenceNamesList(sortedCurrentlySelectedSoundSequenceArray);
       }
       });
 
